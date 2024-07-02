@@ -2,15 +2,16 @@
 
 <body class="bg-slate-100 poppins-regular ">
 
-    <div class="w-full h-screen px-4 py-2 flex items-center justify-center">
+    <div class="w-full px-4 py-2 flex items-center justify-center">
         <div
-            class="w-full max-w-sm p-4 bg-white  rounded-lg shadow-2xl shadow-slate-900 sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden">
-            <img src="/img/abstract-shape/blob.svg" alt=""
-                class="absolute top-0 left-0 -translate-x-[40%] -translate-y-[60%] opacity-75  ">
+            class="w-full max-w-sm mx-10 p-4 bg-white  rounded-lg shadow-2xl shadow-slate-900 sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 relative overflow-hidden">
+            {{-- <img src="/img/abstract-shape/blob.svg" alt=""
+                class="absolute top-0 left-0 -translate-x-[40%] -translate-y-[60%] opacity-75  "> --}}
             <img src="/img/abstract-shape/blob.svg" alt=""
                 class="absolute bottom-0 right-0 translate-x-[40%] translate-y-[60%] opacity-70 ">
-            <form class="space-y-6 sticky" action="# ">
+            <form class="space-y-6 sticky flex flex-col justify-center" action="# ">
                 <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center z-20">Register</h5>
+                <img src="/img/unDraw/03.svg" alt="Image" class=" h-44 z-30 ">
                 <div class="flex gap-2">
                     <button
                         class=" px-4  rounded-full border border-black flex gap-4 py-2 w-full items-center transition-all bg-white bg-opacity-60 hover:bg-opacity-100 hover:text-black hover:border hover:border-black dark:hover:bg-white dark:hover:text-black dark:hover:border-white">
@@ -44,16 +45,26 @@
                     <input type="email" name="email" id="email"
                         class="bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                         placeholder="email@email.com" required />
-                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Password</label>
-                    <input type="password" name="password" id="password"
-                        class="bg-gray-50 border border-gray-300 mb-2 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required />
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                        password</label>
+                    <div class="relative">
+                        <input type="password" name="password" id="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                            required />
+                        <i data-feather="eye-off" onclick="showPassword(this, 'password')"
+                            class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5"></i>
+                    </div>
                     <label for="password_confirm"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm password</label>
-                    <input type="password" name="password_confirm" id="password_confirm"
-                        class="bg-gray-50 border border-red-500  mb-2 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-red-500 dark:placeholder-gray-400 dark:text-white"
-                        required />
+                    <div class="relative">
+
+                        <input type="password" name="password_confirm" id="password_confirm"
+                            class="bg-gray-50 border border-red-500  mb-2 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-red-500 dark:placeholder-gray-400 dark:text-white"
+                            required />
+                        <i data-feather="eye-off" onclick="showPassword(this, 'password_confirm')"
+                            class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5"></i>
+
+                    </div>
                     <span class=" text-red-500 text-xs italic">Password not match!</span>
                 </div>
                 <div class="flex items-start">
@@ -81,4 +92,18 @@
             </form>
         </div>
     </div>
+    <script>
+        function showPassword(element, fieldID) {
+            const passwordField = document.getElementById(fieldID)
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                element.setAttribute("data-feather", "eye-off");
+            } else {
+                passwordField.type = "password";
+                element.setAttribute("data-feather", "eye");
+            }
+            feather.replace();
+        }
+        feather.replace();
+    </script>
     <x-layouts.footer />

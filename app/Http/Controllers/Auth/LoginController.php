@@ -23,4 +23,11 @@ class LoginController extends Controller
         ];
         return view('auth.register', compact('web'));
     }
+
+    public function forgotPasswordPage() {
+         $web = [
+            'page' => 'Forgot Password'
+        ];
+        return view('auth.forgot_password', compact('web'));
+    }
 }

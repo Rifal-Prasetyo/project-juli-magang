@@ -11,7 +11,7 @@
     <meta property="og:image" content="{{ env('APP_URL') }}/thumbnail.jpg" />
     <title>{{ env('APP_NAME') }} | {{ $web['page'] }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/self.css'])
-
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
 
 <body>
