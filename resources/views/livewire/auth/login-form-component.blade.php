@@ -1,4 +1,4 @@
-<form class="space-y-6 sticky flex flex-col justify-center" wire:submit.prevent="login">
+<form class="space-y-6 sticky flex flex-col justify-center w-full" wire:submit.prevent="login">
     <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center z-20">Welcome Back</h5>
     <img src="/img/unDraw/01.svg" alt="Image" class=" h-44 z-30 ">
 
@@ -101,7 +101,7 @@
             account</a>
     </div>
     <div class="relative flex justify-center items-center w-full mb-2">
-        <hr class="absolute border border-slate-300 h-[1px] w-full" />
+        <hr class="absolute border border-slate-300 h-[1px] w-full border-opacity-40" />
         <span class="px-2 bg-slate-300 rounded-full z-10 dark:bg-gray-800 dark:border-gray-70  text-white">or</span>
     </div>
     <div class="flex gap-2">

@@ -1,4 +1,4 @@
-<form class="space-y-6 sticky flex flex-col justify-center" wire:submit.prevent="forgotPassword">
+<form class="space-y-6 sticky flex flex-col justify-center w-full" wire:submit.prevent="forgotPassword">
     <h5 class="text-xl font-medium text-gray-900 dark:text-white text-center z-20">Forgot Password</h5>
     <img src="/img/unDraw/04.svg" alt="Image" class=" h-36 z-30 ">
     <div>
