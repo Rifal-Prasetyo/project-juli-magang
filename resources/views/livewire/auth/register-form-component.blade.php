@@ -26,12 +26,12 @@
         @error('name')
             <span class=" text-red-500 text-xs italic">{{ $message }}</span>
         @enderror
-        <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
+        {{-- <label for="birthday" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Birthday</label>
         <input type="date" name="birthday" id="birthday" wire:model.live="birthday"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('birthday') border-red-500 @enderror" />
         @error('birthday')
             <span class=" text-red-500 text-xs italic">{{ $message }}</span>
-        @enderror
+        @enderror --}}
         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
             Email</label>
         <input type="text" name="email" id="email" wire:model.live="email"
@@ -44,9 +44,10 @@
             password</label>
         <div class="relative">
             <input type="password" name="password" id="password" wire:model.live="password"
+                onchange="feather.replace()"
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('password') border-red-500 @enderror" />
             <i data-feather="eye-off" onclick="showPassword(this, 'password')"
-                class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5"></i>
+                class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5 w-[1rem] h-[1rem]"></i>
         </div>
         @error('password')
             <span class=" text-red-500 text-xs italic">{{ $message }}</span>
@@ -55,10 +56,11 @@
             password</label>
         <div class="relative">
 
-            <input type="password" name="password_confirm" id="password_confirm" wire:model.live="password_confirmation"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('password') border-red-500 @enderror" />
             <i data-feather="eye-off" onclick="showPassword(this, 'password_confirm')"
-                class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5"></i>
+                class="text-black dark:text-white absolute right-0 top-1/2 transform -translate-y-1/2 mr-5 z-20 w-[1rem] h-[1rem]"></i>
+            <input type="password" name="password_confirm" id="password_confirm" wire:model.live="password_confirmation"
+                onchange="feather.replace()"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white @error('password_confirmation') border-red-500 @enderror" />
 
         </div>
         @error('password_confirmation')
@@ -69,16 +71,19 @@
     <div class="flex items-start">
         <div class="flex items-start">
             <div class="flex items-center h-5">
-                <input id="remember" type="checkbox" value=""
+                <input id="ToS" type="checkbox" value="1" wire:model="tos"
                     class="w-4 h-4 border border-gray-300 rounded-full bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" />
             </div>
-            <label for="remember" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">by
+            <label for="ToS" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">by
                 clicking checkbox, you agree to our <a href="#"
                     class="text-blue-700 hover:underline dark:text-blue-500">terms and
                     conditions</a></label>
         </div>
 
     </div>
+    @error('tos')
+        <span class=" text-red-500 text-xs italic">{{ $message }}</span>
+    @enderror
 
     <button type="submit"
         class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Register</button>

@@ -12,11 +12,13 @@ class RegisterFormComponent extends Component
     public $email;
     public $password;
     public $password_confirmation;
+    public $tos;
     
 
     protected $rules = [
         'name' => 'required|min:5',
-        'birtday' => 'required',
+        // 'birtday' => 'required',
+        'tos' => 'required',
         'email' => 'required|email',
         'password' => 'required|min:8',
         'password_confirmation' => 'required|same:password',
@@ -25,7 +27,8 @@ class RegisterFormComponent extends Component
     protected $message = [
         'name.required' => 'Name must be filled',
         'name.min:5' => 'Name must be at least 5 characters',
-        'birtday.required' => 'Birtday must be filled',
+        // 'birtday.required' => 'Birtday must be filled',
+        'tos.required' => 'You must accept TOS',
         'email.required' => 'Email must be filled',
         'email.email' => 'must be Email',
         'password.required' => 'Password must be filled',
@@ -40,8 +43,8 @@ class RegisterFormComponent extends Component
 
     
     public function register () {
-        $this->validate();
-
+        $validateData = $this->validate();
+        session()->flash('status', 'Your account has been created successfully');
         return redirect('/login');
     }
 

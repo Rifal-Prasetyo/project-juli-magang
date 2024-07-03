@@ -27,13 +27,19 @@ class LoginFormComponent extends Component
     {
         $this->validateOnly($propertyName);
     }
+    // Add a Livewire method to close the toast
 
     // if form submitting, this function will be called
     public function login() {
         $validatedData = $this->validate();
 
-        
-        redirect('/');
+        if($validatedData['email'] == 'rifal@example.com' && $validatedData['password'] == '12345678') {
+            
+            return redirect('/');
+        } else {
+            $this->addError('info', 'Wrong email or password');
+            return redirect()->back();
+        }
     }
     public function render()
     {
